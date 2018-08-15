@@ -1,0 +1,16 @@
+{
+  "name": "jsonl-to-geojson",
+  "version": "0.0.1",
+  "description": "Utility for creating geoJSON from line-delimited JSON",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "JSON",
+    "line-delimited",
+    "geoJSON"
+  ],
+  "author": "rory sedgwick",
+  "license": "ISC"
+}
