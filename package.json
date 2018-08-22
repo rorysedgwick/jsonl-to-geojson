@@ -4,7 +4,7 @@
   "description": "Utility for creating geoJSON from line-delimited JSON",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -w"
   },
   "keywords": [
     "JSON",
@@ -12,5 +12,9 @@
     "geoJSON"
   ],
   "author": "rory sedgwick",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
 }
