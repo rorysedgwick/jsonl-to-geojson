@@ -1,7 +1,18 @@
 const fs = require('fs');
 const path = require('path');
 
-fs.readFile(path.resolve(__dirname, 'data/rory.jsonl'), 'utf-8', (err, data) => {
+const inputFile = process.argv[2];
+
+if(!inputFile) {
+    console.log(`Please supply an input file in the format
+        node index.js [inputFilepath]
+    `)
+    process.exit(1);
+};
+
+const outputFile = inputFile.split('/').reverse()[0].replace('.jsonl', '');
+
+fs.readFile(path.resolve(__dirname, `${inputFile}`), 'utf-8', (err, data) => {
     if(err) {
         console.log('err: ', err);
     }
@@ -32,11 +43,11 @@ fs.readFile(path.resolve(__dirname, 'data/rory.jsonl'), 'utf-8', (err, data) => 
         });
 
     const outputgeoJSON = JSON.stringify(geoJSON, null, 4);
-    // // console.log('output: ', output);
-    fs.writeFile(path.resolve(__dirname, 'output.geojson'), outputgeoJSON, err => {
+
+    fs.writeFile(path.resolve(__dirname, `dist/${outputFile}.geojson`), outputgeoJSON, err => {
         if(err) {
             console.log('err: ', err);
         }
-        console.log('done');
+        console.log(`file saved to dist/${outputFile}.geojson`);
     });
 });
